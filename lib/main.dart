@@ -12,10 +12,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData.dark(),
@@ -24,6 +20,18 @@ class MyApp extends StatelessWidget {
   }
 }
 
+enum City {
+  dhaka,
+  khulna,
+  sylhet
+}
+
+ typedef WeatherEmoji = String;
+
+ Future<WeatherEmoji> getWeather(City city){
+   return Future.delayed(const Duration(seconds: 1), ()=>
+     {City.dhaka: '😀', City.khulna: '😀', City.sylhet: "😀"}[city]!);
+   }
 
 
 class HomePage extends ConsumerWidget {
